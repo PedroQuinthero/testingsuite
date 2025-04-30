@@ -13,7 +13,10 @@
     "client:dev": "cd client && npm run dev",
     "build": "cd server && npm run build",
     "seed": "cd server && npm run seed",
-    "render-build": "npm install && npm run build"
+    "render-build": "npm install && npm run build",
+    "cy:open": "cypress open",
+    "cy:run":  "cypress run",
+    "test":    "start-server-and-test start:dev http://localhost:5173 cy:run"
   },
   "keywords": [],
   "author": "",

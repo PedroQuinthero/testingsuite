@@ -1,0 +1,23 @@
+[
+    {
+      "_id": "1",
+      "question": "What does CSS stand for?",
+      "answers": [
+        { "text": "Cascading Style Sheets", "isCorrect": true },
+        { "text": "Creative Style System",  "isCorrect": false },
+        { "text": "Computer Style Sheets",  "isCorrect": false },
+        { "text": "Complex Styles",         "isCorrect": false }
+      ]
+    },
+    {
+      "_id": "2",
+      "question": "Which HTML tag defines a hyperlink?",
+      "answers": [
+        { "text": "<a>",           "isCorrect": true },
+        { "text": "<link>",        "isCorrect": false },
+        { "text": "<href>",        "isCorrect": false },
+        { "text": "<hyperlink>",   "isCorrect": false }
+      ]
+    }
+  ]
+  
