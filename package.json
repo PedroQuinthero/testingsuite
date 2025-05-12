@@ -9,14 +9,16 @@
     "server": "cd server && npm start",
     "server:dev": "cd server && npm run dev",
     "install": "cd server && npm i && cd ../client && npm i",
-    "client:build": "cd client && npm run build",
+    "client:build":   "cd client && vite build",
+    "client:preview": "cd client && vite preview --port 5173 --strictPort",
     "client:dev": "cd client && npm run dev",
     "build": "cd server && npm run build",
     "seed": "cd server && npm run seed",
     "render-build": "npm install && npm run build",
     "cy:open": "cypress open",
     "cy:run":  "cypress run",
-    "test":    "start-server-and-test start:dev http://localhost:5173 cy:run"
+    "test": "npm run client:build && start-server-and-test start:prod http://localhost:5173 cy:run",
+    "start:prod": "concurrently \"npm run server\" \"npm run client:preview\""
   },
   "keywords": [],
   "author": "",
