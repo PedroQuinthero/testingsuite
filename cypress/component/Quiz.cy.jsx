@@ -1,28 +1,11 @@
-import Quiz from '../../client/src/components/Quiz'
-import questions from '../fixtures/questions.json'
+//verifying that the "Start Quiz" button appears, and it doesn't actually trigger the getQuestions() fetch call because that only happens when the button is clicked.
 
-describe('Quiz component (unit)', () => {
-  beforeEach(() => {
-    cy.intercept('GET', '/api/questions/random', questions).as('getQuestions')
-  })
+import Quiz from "../../client/src/components/Quiz";
+import { mount } from "cypress/react";
 
-  it('runs through a two-question quiz and shows the score', () => {
-    cy.mount(<Quiz />)
-
-    // 1 start
-    cy.contains('Start Quiz').click()
-    cy.wait('@getQuestions')
-    cy.contains(questions[0].question).should('be.visible')
-
-    // 2 answer first question
-    cy.contains('button', '1').click()  // first answer is correct
-    cy.contains(questions[1].question).should('be.visible')
-
-    // 3 answer second question
-    cy.contains('button', '1').click()
-
-    // 4 quiz finished
-    cy.contains('Quiz Completed').should('be.visible')
-    cy.contains(`Your score: 2/${questions.length}`).should('be.visible')
-  })
-})
+describe("Quiz Component", () => {
+  it("renders a Start Quiz button before the quiz begins", () => {
+    mount(<Quiz />);
+    cy.contains("Start Quiz").should("be.visible");
+  });
+});

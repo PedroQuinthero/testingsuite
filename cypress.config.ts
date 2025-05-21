@@ -1,19 +1,20 @@
-import { defineConfig } from 'cypress'
+import { defineConfig } from "cypress";
+import customViteConfig from "./vite.config";
 
 export default defineConfig({
-  // --- component runner ---
   component: {
     devServer: {
-      framework: 'react',
-      bundler: 'vite',
+      framework: "react",
+      bundler: "vite",
+      viteConfig: customViteConfig,
     },
-    specPattern: 'cypress/component/**/*.cy.{js,jsx,ts,tsx}',
+    specPattern: "cypress/component/**/*.cy.{js,ts,jsx,tsx}",
   },
-
-  // --- end-to-end runner ---
+ 
   e2e: {
-    baseUrl: 'http://localhost:5173',   // Vite’s default port
-    specPattern: 'cypress/e2e/**/*.cy.{js,jsx,ts,tsx}',
-    setupNodeEvents() { /* node-level hooks not needed here */ },
+    baseUrl: "http://127.0.0.1:5173",
+    setupNodeEvents(on, config) {
+      // implement node event listeners here
+    },
   },
-})
+});
